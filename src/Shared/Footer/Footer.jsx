@@ -44,7 +44,7 @@ const Footer = () => {
                 </a>
                 <p>
                   FitJourney is your personalized fitness companion. Whether
-                  you're just starting out or are a seasoned athlete, we offer
+                  you are just starting out or are a seasoned athlete, we offer
                   expert advice, fitness tracking, and personalized workout
                   plans to help you reach your goals. Join our community to
                   improve your health and fitness, one step at a time.
