@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Login = () => {
 
@@ -12,7 +12,7 @@ const Login = () => {
 
   return (
     <>
-    <div className="w-full mx-auto my-10 max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800">
+    <div className="w-full mx-auto my-10 max-w-md p-4 rounded-md shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
 	<h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
 	
 	
@@ -33,7 +33,7 @@ const Login = () => {
 		</div>
     <div>
     <p className="text-sm text-center dark:text-gray-600">Dont have account?
-		<a href="#" rel="noopener noreferrer" className="focus:underline hover:underline">Sign up here</a>
+		<NavLink to="/register" href="#" rel="noopener noreferrer" className="font-semibold focus:underline hover:underline">Sign up here</NavLink>
 	</p>
   </div>
 		<button type="button" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">Sign in</button>
