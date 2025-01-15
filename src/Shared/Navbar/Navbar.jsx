@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from '../../assets/business_gym_logo2.jpg'
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -112,14 +113,15 @@ const Navbar = () => {
                 </a>
               </li>
               <li role="none" className="flex items-center">
-                <a
+                <NavLink
+                  to="/login"
                   role="menuitem"
                   aria-haspopup="false"
                   className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
                   href="javascript:void(0)"
                 >
                   <span>Login</span>
-                </a>
+                </NavLink>
               </li>
               <li role="none" className="flex items-center">
                 <a
