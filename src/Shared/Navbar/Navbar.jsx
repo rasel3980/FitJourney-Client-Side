@@ -62,17 +62,17 @@ const Navbar = () => {
               }`}
             >
               <li role="none" className="flex items-center">
-                <a
+                <NavLink
                   role="menuitem"
                   aria-haspopup="false"
                   className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
                   href="javascript:void(0)"
                 >
                   <span>Home</span>
-                </a>
+                </NavLink>
               </li>
               <li role="none" className="flex items-center">
-                <a
+                <NavLink
                   role="menuitem"
                   aria-current="page"
                   aria-haspopup="false"
@@ -80,17 +80,17 @@ const Navbar = () => {
                   href="javascript:void(0)"
                 >
                   <span>All Trainer</span>
-                </a>
+                </NavLink>
               </li>
               <li role="none" className="flex items-center">
-                <a
+                <NavLink
                   role="menuitem"
                   aria-haspopup="false"
                   className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
                   href="javascript:void(0)"
                 >
                   <span>All Classes</span>
-                </a>
+                </NavLink>
               </li>
               <li role="none" className="flex items-center">
                 <a
@@ -103,14 +103,14 @@ const Navbar = () => {
                 </a>
               </li>
               <li role="none" className="flex items-center">
-                <a
+                <NavLink
                   role="menuitem"
                   aria-haspopup="false"
                   className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
                   href="javascript:void(0)"
                 >
                   <span>Forums</span>
-                </a>
+                </NavLink>
               </li>
               <li role="none" className="flex items-center">
                 <NavLink
