@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from '../../assets/business_gym_logo2.jpg'
 import { NavLink } from "react-router-dom";
+import { authContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {handleLogout} = useContext(authContext)
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   return (
     <>
@@ -154,7 +156,9 @@ const Navbar = () => {
                   <span className="sr-only"> 7 new emails </span>
                 </span>
               </a>
+              <button onClick={handleLogout}>LogOut</button>
             </div>
+
           </nav>
         </div>
       </header>
