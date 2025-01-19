@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { authContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const {handleLogout} = useContext(authContext)
+  const {handleLogout,user} = useContext(authContext)
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   return (
     <>
@@ -75,6 +75,7 @@ const Navbar = () => {
               </li>
               <li role="none" className="flex items-center">
                 <NavLink
+                  to="all-trainer"
                   role="menuitem"
                   aria-current="page"
                   aria-haspopup="false"
@@ -94,7 +95,7 @@ const Navbar = () => {
                   <span>All Classes</span>
                 </NavLink>
               </li>
-              <li role="none" className="flex items-center">
+              {user && <li role="none" className="flex items-center">
                 <a
                   role="menuitem"
                   aria-haspopup="false"
@@ -103,7 +104,7 @@ const Navbar = () => {
                 >
                   <span>Dashboard</span>
                 </a>
-              </li>
+              </li>}
               <li role="none" className="flex items-center">
                 <NavLink
                   role="menuitem"
@@ -114,28 +115,29 @@ const Navbar = () => {
                   <span>Forums</span>
                 </NavLink>
               </li>
-              <li role="none" className="flex items-center">
-                <NavLink
-                  to="/login"
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Login</span>
-                </NavLink>
-              </li>
-              <li role="none" className="flex items-center">
-                <NavLink
-                  to="/register"
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Register</span>
-                </NavLink>
-              </li>
+              {!user && 
+              <><li role="none" className="flex items-center">
+              <NavLink
+                to="/login"
+                role="menuitem"
+                aria-haspopup="false"
+                className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                href="javascript:void(0)"
+              >
+                <span>Login</span>
+              </NavLink>
+            </li>
+            <li role="none" className="flex items-center">
+              <NavLink
+                to="/register"
+                role="menuitem"
+                aria-haspopup="false"
+                className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                href="javascript:void(0)"
+              >
+                <span>Register</span>
+              </NavLink>
+            </li></>}
             </ul>
 
             {/* Avatar */}
@@ -145,7 +147,7 @@ const Navbar = () => {
                 className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
               >
                 <img
-                  src="https://i.pravatar.cc/40?img=35"
+                  src={user?.photoURL}
                   alt="user name"
                   title="user name"
                   width="40"
@@ -156,7 +158,7 @@ const Navbar = () => {
                   <span className="sr-only"> 7 new emails </span>
                 </span>
               </a>
-              <button onClick={handleLogout}>LogOut</button>
+              {user && <button onClick={handleLogout}>Logout</button>}
             </div>
 
           </nav>

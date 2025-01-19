@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
+import Trainers from "../Pages/Trainers/Trainers";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path:"/forget-password",
                 element:<ForgetPassword></ForgetPassword>
+            },
+            {
+                path:"/all-trainer",
+                element:<Trainers></Trainers>
             },
         ]
     }
