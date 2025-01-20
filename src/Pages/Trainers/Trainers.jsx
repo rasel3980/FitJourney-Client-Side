@@ -115,7 +115,7 @@ const Trainers = () => {
               </div>
 
               <Link
-                to={`/trainer-details/${trainer.id}`} 
+                to={`/details/${trainer._id}`} 
                 className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50"
               >
                 <button className="bg-cyan-500 py-3 px-5 rounded-xl">Know More</button>
