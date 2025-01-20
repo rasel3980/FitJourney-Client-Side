@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import { Link, useLoaderData } from "react-router-dom";
+import BeAtrainer from "../../Components/BeAtrainer";
 
 const TrainerDetails = () => {
   const trainerDetails = useLoaderData();
@@ -19,9 +20,7 @@ const TrainerDetails = () => {
     yearsOfExperience,
   } = trainerDetails;
 
-  // State to toggle between Trainer Info and Available Slots
-  const [showInfo, setShowInfo] = useState(true); // true means show Trainer Info by default
-
+  const [showInfo, setShowInfo] = useState(true); 
   const handleToggle = (section) => {
     if (section === "info") {
       setShowInfo(true);
@@ -31,9 +30,9 @@ const TrainerDetails = () => {
   };
 
   return (
+    <>
     <div className="py-24 flex justify-center w-full items-center">
-      <div className="w-full max-w-4xl border px-10 py-6">
-        {/* Buttons to toggle sections */}
+      <div className="w-full max-w-4xl border shadow-lg px-10 py-6">
         <div className="flex justify-center mb-4">
           <button
             className={`border text-xl font-bold border-black px-16 py-2 ${showInfo ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
@@ -49,7 +48,6 @@ const TrainerDetails = () => {
           </button>
         </div>
 
-        {/* Trainer Info Section */}
         {showInfo ? (
           <div>
             <div className="flex items-center space-x-6 mb-6">
@@ -95,9 +93,6 @@ const TrainerDetails = () => {
               <h3 className="font-semibold text-lg">Expertise:</h3>
               <p>{expertise}</p>
             </div>
-
-            
-
             {contactDetails && (
               <div>
                 <h3 className="font-semibold text-lg">Contact Details:</h3>
@@ -107,7 +102,6 @@ const TrainerDetails = () => {
             )}
           </div>
         ) : (
-          /* Available Slots Section */
           <div>
             <h3 className="font-semibold text-xl mb-6">Available Slots:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -122,7 +116,7 @@ const TrainerDetails = () => {
                           className={`p-3 rounded-lg cursor-pointer ${slot.isAvailable ? 'bg-green-100' : 'bg-red-100'}`}
                         >
                           <Link
-                            to={`/book-session/${slot.slotId}`} // Redirect to the booking page
+                            to={`/book-session/${slot.slotId}`}
                             className="flex justify-between items-center"
                           >
                             <span>{slot.time}</span>
@@ -142,6 +136,8 @@ const TrainerDetails = () => {
         )}
       </div>
     </div>
+    <BeAtrainer></BeAtrainer>
+    </>
   );
 };
 
