@@ -7,8 +7,17 @@ import {
 import { router } from './Router/Router.jsx';
 import AuthProvider from './Providers/AuthProvider/AuthProvider.jsx';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider routes={<RouterProvider router={router}></RouterProvider>}></AuthProvider>
+    <QueryClientProvider client={queryClient}>
+    <AuthProvider routes={<RouterProvider router={router}></RouterProvider>}>
+    </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

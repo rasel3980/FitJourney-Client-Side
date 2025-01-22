@@ -4,9 +4,12 @@ import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
 import { Link, useLoaderData } from "react-router-dom";
 import BeAtrainer from "../../Components/BeAtrainer";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const TrainerDetails = () => {
   const trainerDetails = useLoaderData();
+  const axiosSecure = useAxiosSecure();
+  console.log("trainerDetails",trainerDetails);
   const {
     name,
     age,
@@ -17,8 +20,16 @@ const TrainerDetails = () => {
     expertise,
     profileImage,
     socialLinks,
+    packages,
     yearsOfExperience,
   } = trainerDetails;
+
+  // const trainerBooked = {
+  //   name,
+  //   availableSlots,
+  //   classesOffered,
+  //   packages
+  // }
 
   const [showInfo, setShowInfo] = useState(true); 
   const handleToggle = (section) => {
@@ -28,7 +39,14 @@ const TrainerDetails = () => {
       setShowInfo(false);
     }
   };
-
+  // axiosSecure.post('/trainer-booked',trainerBooked,{
+  //   headers:{
+  //     "Content-Type": "application/json",
+  //   }
+  // })
+  // .then((res)=>{
+  //   console.log("response",res.data);
+  // })
   return (
     <>
     <div className="py-24 flex justify-center w-full items-center">
@@ -116,7 +134,7 @@ const TrainerDetails = () => {
                           className={`p-3 rounded-lg cursor-pointer ${slot.isAvailable ? 'bg-green-100' : 'bg-red-100'}`}
                         >
                           <Link
-                            to={`/book-session/${slot.slotId}`}
+                            to={`/trainer-booked/${slot.slotId}`}
                             className="flex justify-between items-center"
                           >
                             <span>{slot.time}</span>

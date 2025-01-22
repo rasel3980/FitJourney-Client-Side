@@ -15,7 +15,7 @@ export const authContext = createContext();
 const AuthProvider = ({ routes }) => {
         const provider = new GoogleAuthProvider();
         const [user, setUser] = useState(null);
-        const [loader, setLoader] = useState(true);
+        const [loader, setLoader] = useState(false);
         const axiosPublic = useAxiosPublic();
       
         const handleGoogleLogin = () => {

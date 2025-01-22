@@ -19,7 +19,7 @@ const BeAtrainer = () => {
           difference.
         </p>
         <a
-          href="/become-a-trainer"
+          href="/be-trainer"
           className="inline-block bg-red-500 text-white py-3 px-8 text-xl font-semibold uppercase rounded-lg hover:bg-red-400 transform transition duration-300 ease-in-out hover:scale-105"
         >
           Become a Trainer

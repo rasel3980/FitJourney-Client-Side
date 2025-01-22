@@ -6,11 +6,15 @@ import Register from "../Pages/Register/Register";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 import Trainers from "../Pages/Trainers/Trainers";
 import TrainerDetails from "../Pages/Trainers/TrainerDetails";
+import Error from "../Pages/Error/Error";
+import Classes from "../Pages/Classes/Classes";
+import BeTrainer from "../Pages/BeTrainer/BeTrainer";
 
 export const router = createBrowserRouter([
     {
         path:"/",
         element:<MainLayout></MainLayout>,
+        errorElement:<Error></Error>,
         children:[
             {
                 path:"/",
@@ -31,6 +35,14 @@ export const router = createBrowserRouter([
             {
                 path:"/all-trainer",
                 element:<Trainers></Trainers>
+            },
+            {
+                path:"/all-class",
+                element:<Classes></Classes>
+            },
+            {
+                path:"/be-trainer",
+                element:<BeTrainer></BeTrainer>
             },
             {
                 path:"/details/:id",
