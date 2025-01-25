@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Providers/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { handleSignIN, handleGoogleLogin, user } = useContext(authContext);
@@ -32,6 +33,9 @@ const Login = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Login | FitJourney</title>
+    </Helmet>
       <div className="w-full mx-auto my-10 max-w-md p-4 rounded-md shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Login to your account
@@ -93,9 +97,9 @@ const Login = () => {
             </p>
           </div>
           <button
-            className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50"
+            className="w-full px-8 py-3 font-semibold rounded-md bg-cyan-700 text-white hover:bg-cyan-800"
           >
-            Sign in
+            Login
           </button>
         </form>
 

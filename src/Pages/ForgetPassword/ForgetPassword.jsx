@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../Providers/AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const ForgetPassword = () => {
     const { ForgetPassword } = useContext(authContext);
@@ -20,6 +21,10 @@ const ForgetPassword = () => {
       });
   };
     return (
+        <>
+        <Helmet>
+          <title>Forget Password | FitJourney</title>
+        </Helmet>
         <div className="w-full mx-auto my-10 max-w-md p-4 rounded-md shadow-xl sm:p-8 dark:bg-gray-50 dark:text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
         Forget Password!
@@ -66,6 +71,7 @@ const ForgetPassword = () => {
           </button>
         </form>
       </div>
+        </>
     );
 };
 

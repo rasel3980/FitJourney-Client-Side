@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loading from "../Loading/Loading";
+import { Helmet } from "react-helmet";
 
 const TrainerBooked = () => {
   const axiosSecure = useAxiosSecure();
@@ -26,6 +27,10 @@ const TrainerBooked = () => {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>Trainer Booked | FitJourney</title>
+    </Helmet>
     <div className="p-6 space-y-6">
       <h2 className="text-3xl font-bold">Booked Trainer Information</h2>
       {booked && booked.length > 0 ? (
@@ -49,6 +54,7 @@ const TrainerBooked = () => {
         <p>No trainers booked yet. Please try again later.</p>
       )}
     </div>
+    </>
   );
 };
 

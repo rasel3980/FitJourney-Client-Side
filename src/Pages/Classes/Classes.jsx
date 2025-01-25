@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Loading from "../Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
@@ -25,6 +26,10 @@ const Classes = () => {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>All Classes | FitJourney</title>
+    </Helmet>
     <div className="w-11/12 mx-auto my-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {classes?.map((classItem) => (
@@ -71,6 +76,7 @@ const Classes = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

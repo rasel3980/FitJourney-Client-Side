@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { authContext } from "../../Providers/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { handleRegister,ManageProfile } = useContext(authContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const location = useLocation();
 
   const handleRegisterUser = (event) => {
     event.preventDefault();
@@ -15,6 +17,8 @@ const Register = () => {
     const photo = form.photoURl.value;
     const password = form.password.value;
     console.log(name, email, password, photo);
+    const from = location.state?.from?.pathname || "/";
+
     setErrorMessage("");
     setSuccess(false);
     if (password.length < 6) {
@@ -32,6 +36,7 @@ const Register = () => {
     }
     handleRegister(email, password)
     .then((result) => {
+      navigate(from, { replace: true });
       ManageProfile(name, photo);
       // console.log(result.user);
       setSuccess(true);
@@ -41,6 +46,10 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Register | FitJourney</title>
+    </Helmet>
     <div className="flex flex-col my-10 border shadow-xl mx-auto max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
@@ -109,7 +118,7 @@ const Register = () => {
         <div className="space-y-2">
           <div>
             <button
-              className="w-full px-8 py-3 text-xl font-bold rounded-md dark:bg-violet-600 dark:text-gray-50"
+              className="w-full px-8 py-3 text-xl font-bold rounded-md bg-cyan-800 hover:bg-cyan-900 text-white"
             >
               Sign Up
             </button>
@@ -133,6 +142,7 @@ const Register = () => {
         </div>
       </form>
     </div>
+    </>
   );
 };
 

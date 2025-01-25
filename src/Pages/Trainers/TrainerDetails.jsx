@@ -2,14 +2,26 @@ import { useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import BeAtrainer from "../../Components/BeAtrainer";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const TrainerDetails = () => {
-  const trainerDetails = useLoaderData();
   const axiosSecure = useAxiosSecure();
-  console.log("trainerDetails",trainerDetails);
+  const { id } = useParams();
+  console.log('id',id);
+  const { data: trainerDetails = [], isLoading, error } = useQuery({
+    queryKey: ["trainerDetails",id],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/trainer-details/${id}`);
+      console.log('data',res.data);
+      return res.data;
+    },
+  });
+
+  console.log('trainerDetails',trainerDetails);
   const {
     name,
     age,
@@ -49,6 +61,9 @@ const TrainerDetails = () => {
   // })
   return (
     <>
+    <Helmet>
+      <title>Trainer Details | FitJourney</title>
+    </Helmet>
     <div className="py-24 flex justify-center w-full items-center">
       <div className="w-full max-w-4xl border shadow-lg px-10 py-6">
         <div className="flex justify-center mb-4">
