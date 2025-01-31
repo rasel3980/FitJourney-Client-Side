@@ -11,13 +11,13 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
-  console.log("state in the location login page", location.state);
+  // console.log("state in the location login page", location.state);
 
   const handleLoginForm = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 	setErrorMessage('');
     setSuccess(false);
   };
@@ -27,7 +27,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log("ERROR", error);
+        // console.log("ERROR", error);
       });
   };
 

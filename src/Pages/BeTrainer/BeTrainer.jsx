@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Select from 'react-select';
 import { authContext } from '../../Providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { imageUpload } from '../../api/utils';
 
 const BeTrainer = () => {
   const axiosSecure = useAxiosSecure();
@@ -31,32 +32,31 @@ const BeTrainer = () => {
     setAvailableDays(selectedOptions ? selectedOptions.map(option => option.value) : []);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const form = e.target;
-    const profileImage = form.profileImage.files[0];
     const name = form.name.value;
     const age = form.age.value;
     const email = user?.email;
+    const image = form.profileImage.files[0];
+    const profileImage = await imageUpload(image)
 
-    const formData = new FormData();
-    formData.append("profileImage", profileImage);
-    formData.append("name", name);
-    formData.append("age", age);
-    formData.append("expertise", JSON.stringify(expertise));
-    formData.append("availableDays", JSON.stringify(availableDays));
-    formData.append("availableTime", JSON.stringify(availableTime));
-    formData.append("email", email);
+    const newTrainer = {
+      name,
+      age,
+      email,
+      profileImage
+    }
 
     setLoading(true);
 
-    axiosSecure.post('/trainer-apply', formData, {
+    axiosSecure.post('/trainer-apply', newTrainer, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     })
     .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           title: 'Success!',
@@ -67,7 +67,7 @@ const BeTrainer = () => {
       }
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
       Swal.fire({
         title: 'Error',
         text: 'There was an issue adding your profile.',

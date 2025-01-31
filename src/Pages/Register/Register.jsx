@@ -16,7 +16,7 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photoURl.value;
     const password = form.password.value;
-    console.log(name, email, password, photo);
+    // console.log(name, email, password, photo);
     const from = location.state?.from?.pathname || "/";
 
     setErrorMessage("");

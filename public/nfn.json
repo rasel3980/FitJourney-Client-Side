@@ -1,0 +1,628 @@
+// [
+//     {
+//       "name": "Liam Foster",
+//       "profileImage": "https://i.ibb.co.com/vcY6XMB/pexels-andres-ayrton-6551144.jpg",
+//       "age": 31,
+//       "bio": "Personal trainer with a passion for CrossFit and strength-based training methods.",
+//       "expertise": [
+//         "CrossFit",
+//         "Strength Training",
+//         "Athletic Conditioning"
+//       ],
+//       "yearsOfExperience": 8,
+//       "availableSlots": [
+//         {
+//           "day": "Tuesday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S017",
+//               "time": "8:00 AM - 9:00 AM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/liamfoster",
+//         "instagram": "https://instagram.com/liamfoster",
+//         "twitter": "https://twitter.com/liamfoster"
+//       },
+//       "contactDetails": {
+//         "email": "liamfoster@example.com",
+//         "phone": "+1234567890"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "CrossFit",
+//            "classImg": "https://i.ibb.co.com/f8QBWKv/pexels-franco-monsalvo-252430633-20556237.jpg",
+//           "classDescription": "A high-intensity training program designed to improve overall athletic fitness.",
+//           "duration": "1 hour",
+//           "price": 38
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 152,
+//           "description": "1 CrossFit class per week for 1 month. Focus on improving overall fitness and strength."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 300,
+//           "description": "2 CrossFit classes per week for 1 month. Includes additional strength training and conditioning."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 450,
+//           "description": "Unlimited CrossFit classes per week for 1 month. Includes personalized strength training and athletic conditioning plans."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "John Doe",
+//       "profileImage": "https://i.ibb.co.com/68Scsvc/pexels-olly-774909.jpg",
+//       "age": 35,
+//       "bio": "Certified Personal Trainer with over 10 years of experience in fitness and nutrition. Specializes in weight loss, strength training, and yoga.",
+//       "expertise": [
+//         "Strength Training",
+//         "Yoga",
+//         "Cardio",
+//         "Nutrition Coaching"
+//       ],
+//       "yearsOfExperience": 10,
+//       "availableSlots": [
+//         {
+//           "day": "Monday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S001",
+//               "time": "9:00 AM - 10:00 AM",
+//               "isAvailable": true
+//             },
+//             {
+//               "slotId": "S002",
+//               "time": "10:00 AM - 11:00 AM",
+//               "isAvailable": false
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/johndoe",
+//         "instagram": "https://instagram.com/johndoe",
+//         "twitter": "https://twitter.com/johndoe"
+//       },
+//       "contactDetails": {
+//         "email": "johndoe@example.com",
+//         "phone": "+1234567890"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Yoga",
+//           "classImg": "https://i.ibb.co.com/kJtBhZL/pexels-victorfreitas-841130.jpg",
+//           "classDescription": "A calming yoga session focusing on flexibility, balance, and relaxation.",
+//           "duration": "1 hour",
+//           "price": 20
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 100,
+//           "description": "1 class per week for 1 month. Focus on one area of expertise (Yoga, Strength, or Nutrition)."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 250,
+//           "description": "2 classes per week for 1 month. Includes personalized nutrition plan and access to online resources."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 400,
+//           "description": "Unlimited classes per week for 1 month. Includes personalized fitness and nutrition plan, plus one-on-one sessions for goal tracking."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Sarah Smith",
+//       "profileImage": "https://i.ibb.co.com/fDh31zc/pexels-justin-shaifer-501272-1222271.jpg",
+//       "age": 30,
+//       "bio": "Fitness Enthusiast and Certified Personal Trainer with 8 years of experience in weight loss, strength training, and HIIT.",
+//       "expertise": [
+//         "HIIT",
+//         "Weight Loss",
+//         "Strength Training"
+//       ],
+//       "yearsOfExperience": 8,
+//       "availableSlots": [
+//         {
+//           "day": "Tuesday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S003",
+//               "time": "8:00 AM - 9:00 AM",
+//               "isAvailable": true
+//             },
+//             {
+//               "slotId": "S004",
+//               "time": "9:00 AM - 10:00 AM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/sarahsmith",
+//         "instagram": "https://instagram.com/sarahsmith",
+//         "twitter": "https://twitter.com/sarahsmith"
+//       },
+//       "contactDetails": {
+//         "email": "sarahsmith@example.com",
+//         "phone": "+1987654321"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "HIIT Training",
+//           "classImg": "https://i.ibb.co.com/mRnGj0V/pexels-airamdphoto-13106623.jpg",
+//           "classDescription": "High-Intensity Interval Training to help burn fat and improve endurance.",
+//           "duration": "1 hour",
+//           "price": 30
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 120,
+//           "description": "1 class per week for 1 month. Focus on strength training or HIIT."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 280,
+//           "description": "2 classes per week for 1 month. Includes basic workout plan and progress tracking."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 450,
+//           "description": "Unlimited classes per week for 1 month. Includes a personalized fitness plan, one-on-one sessions, and constant progress monitoring."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Emily Davis",
+//       "profileImage": "https://i.ibb.co.com/YpHwBW5/pexels-tarzine-jackson-254126-773371.jpg",
+//       "age": 28,
+//       "bio": "A passionate fitness trainer focused on providing personalized fitness and nutrition guidance.",
+//       "expertise": [
+//         "Cardio",
+//         "Strength Training",
+//         "Nutrition Coaching"
+//       ],
+//       "yearsOfExperience": 5,
+//       "availableSlots": [
+//         {
+//           "day": "Wednesday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S005",
+//               "time": "7:00 AM - 8:00 AM",
+//               "isAvailable": false
+//             },
+//             {
+//               "slotId": "S006",
+//               "time": "8:00 AM - 9:00 AM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/emilydavis",
+//         "instagram": "https://instagram.com/emilydavis",
+//         "twitter": "https://twitter.com/emilydavis"
+//       },
+//       "contactDetails": {
+//         "email": "emilydavis@example.com",
+//         "phone": "+1230987654"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Strength Training",
+//           "classImg": "https://i.ibb.co.com/hFVdMWZ/pexels-olly-3837388.jpg",
+//           "classDescription": "A workout program designed to build muscle and strength.",
+//           "duration": "1 hour",
+//           "price": 25
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 90,
+//           "description": "1 class per week for 1 month. Focus on strength training or cardio."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 220,
+//           "description": "2 classes per week for 1 month. Includes a basic nutrition plan and fitness assessment."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 350,
+//           "description": "Unlimited classes per week for 1 month. Includes personalized nutrition plan, fitness assessment, and goal tracking."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "James Taylor",
+//       "profileImage": "https://i.ibb.co.com/FmLh8vT/pexels-cottonbro-3206082.jpg",
+//       "age": 38,
+//       "bio": "A fitness expert dedicated to helping individuals achieve their goals through strength training and nutritional guidance.",
+//       "expertise": [
+//         "Strength Training",
+//         "Nutrition",
+//         "Bodybuilding"
+//       ],
+//       "yearsOfExperience": 15,
+//       "availableSlots": [
+//         {
+//           "day": "Monday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S009",
+//               "time": "10:00 AM - 11:00 AM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/jamestaylor",
+//         "instagram": "https://instagram.com/jamestaylor",
+//         "twitter": "https://twitter.com/jamestaylor"
+//       },
+//       "contactDetails": {
+//         "email": "jamestaylor@example.com",
+//         "phone": "+1123456789"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Bodybuilding",
+//           "classImg": "https://i.ibb.co.com/fC2qPT2/pexels-markofit-19549140.jpg",
+//           "classDescription": "Intensive bodybuilding workout to build muscle mass.",
+//           "duration": "1 hour",
+//           "price": 40
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 120,
+//           "description": "1 bodybuilding class per week for 1 month. Focus on muscle-building exercises."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 300,
+//           "description": "2 bodybuilding classes per week for 1 month. Includes a basic nutrition plan to support muscle growth."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 500,
+//           "description": "Unlimited bodybuilding classes per week for 1 month. Includes a personalized nutrition and workout plan tailored to individual goals."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Olivia Brown",
+//       "profileImage": "https://i.ibb.co.com/m4XZsfd/pexels-mikhail-nilov-6739930.jpg",
+//       "age": 32,
+//       "bio": "A dynamic trainer specializing in kickboxing, cardio, and fitness training for women.",
+//       "expertise": [
+//         "Kickboxing",
+//         "Cardio",
+//         "Fitness for Women"
+//       ],
+//       "yearsOfExperience": 6,
+//       "availableSlots": [
+//         {
+//           "day": "Thursday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S010",
+//               "time": "5:00 PM - 6:00 PM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/oliviabrown",
+//         "instagram": "https://instagram.com/oliviabrown",
+//         "twitter": "https://twitter.com/oliviabrown"
+//       },
+//       "contactDetails": {
+//         "email": "oliviabrown@example.com",
+//         "phone": "+1123456789"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Kickboxing",
+//           "classImg": "https://i.ibb.co.com/wg9Cp1q/pexels-cliff-booth-4058411.jpg",
+//           "classDescription": "A high-energy cardio workout that combines boxing and martial arts.",
+//           "duration": "1 hour",
+//           "price": 35
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 120,
+//           "description": "1 kickboxing class per week for 1 month. Focus on improving cardiovascular fitness and endurance."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 280,
+//           "description": "2 kickboxing classes per week for 1 month. Includes a fitness plan tailored for women and cardio drills."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 450,
+//           "description": "Unlimited kickboxing classes per week for 1 month. Includes personalized fitness and nutrition plans, plus one-on-one training sessions."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Sophia White",
+//       "profileImage": "https://i.ibb.co.com/phdMjYw/pexels-rdne-8611249.jpg",
+//       "age": 27,
+//       "bio": "Personal trainer and fitness coach, focusing on high-impact workouts and overall health.",
+//       "expertise": [
+//         "HIIT",
+//         "Weight Loss",
+//         "Core Training"
+//       ],
+//       "yearsOfExperience": 4,
+//       "availableSlots": [
+//         {
+//           "day": "Saturday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S011",
+//               "time": "10:00 AM - 11:00 AM",
+//               "isAvailable": false
+//             },
+//             {
+//               "slotId": "S012",
+//               "time": "11:00 AM - 12:00 PM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/sophiawhite",
+//         "instagram": "https://instagram.com/sophiawhite",
+//         "twitter": "https://twitter.com/sophiawhite"
+//       },
+//       "contactDetails": {
+//         "email": "sophiawhite@example.com",
+//         "phone": "+1987654321"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Core Training",
+//           "classImg": "https://i.ibb.co.com/1fdhCJ3/pexels-niragire-tresor-173186640-11266960.jpg",
+//           "classDescription": "Targeted core workouts to strengthen and tone your midsection.",
+//           "duration": "1 hour",
+//           "price": 25
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 100,
+//           "description": "1 core training class per week for 1 month. Focus on strengthening your core and improving posture."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 240,
+//           "description": "2 core training classes per week for 1 month. Includes additional weight loss and nutrition tips to support your fitness goals."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 380,
+//           "description": "Unlimited core training classes per week for 1 month. Includes personalized fitness and nutrition plans, along with progress tracking."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Ava Clark",
+//       "profileImage": "https://i.ibb.co.com/vwWGhcB/pexels-roxana-azoitei-564873917-16842339.jpg",
+//       "age": 29,
+//       "bio": "Yoga and Pilates instructor specializing in breathwork, flexibility, and rehabilitation exercises.",
+//       "expertise": [
+//         "Yoga",
+//         "Pilates",
+//         "Rehabilitation"
+//       ],
+//       "yearsOfExperience": 7,
+//       "availableSlots": [
+//         {
+//           "day": "Monday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S015",
+//               "time": "4:00 PM - 5:00 PM",
+//               "isAvailable": true
+//             },
+//             {
+//               "slotId": "S016",
+//               "time": "5:00 PM - 6:00 PM",
+//               "isAvailable": false
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/avaclark",
+//         "instagram": "https://instagram.com/avaclark",
+//         "twitter": "https://twitter.com/avaclark"
+//       },
+//       "contactDetails": {
+//         "email": "avaclark@example.com",
+//         "phone": "+1234567890"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Pilates",
+//           "classImg": "https://i.ibb.co.com/vsQqT2T/pexels-giovanni-caprio-721210307-20240043.jpg",
+//           "classDescription": "A full-body workout focusing on strengthening and toning muscles while improving posture.",
+//           "duration": "1 hour",
+//           "price": 22
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 88,
+//           "description": "1 Pilates class per week for 1 month. Focus on building strength, flexibility, and improving posture."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 180,
+//           "description": "2 Pilates classes per week for 1 month. Includes techniques for rehabilitation and injury prevention."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 320,
+//           "description": "Unlimited Pilates classes per week for 1 month. Includes personalized rehabilitation and flexibility plans."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "David Miller",
+//       "profileImage": "https://i.ibb.co.com/wKWTX4y/pexels-ketut-subiyanto-4584186.jpg",
+//       "age": 40,
+//       "bio": "Experienced trainer with expertise in yoga, meditation, and mindfulness. Helps clients achieve balance and peace.",
+//       "expertise": [
+//         "Yoga",
+//         "Meditation",
+//         "Mindfulness"
+//       ],
+//       "yearsOfExperience": 12,
+//       "availableSlots": [
+//         {
+//           "day": "Friday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S007",
+//               "time": "6:00 PM - 7:00 PM",
+//               "isAvailable": true
+//             },
+//             {
+//               "slotId": "S008",
+//               "time": "7:00 PM - 8:00 PM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/davidmiller",
+//         "instagram": "https://instagram.com/davidmiller",
+//         "twitter": "https://twitter.com/davidmiller"
+//       },
+//       "contactDetails": {
+//         "email": "davidmiller@example.com",
+//         "phone": "+1234567890"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Meditation",
+//           "classImg": "https://i.ibb.co.com/wg9Cp1q/pexels-cliff-booth-4058411.jpg",
+//           "classDescription": "Guided meditation to improve mental clarity and reduce stress.",
+//           "duration": "1 hour",
+//           "price": 15
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 60,
+//           "description": "1 meditation session per week for 1 month. Focus on stress reduction and mental clarity."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 150,
+//           "description": "2 meditation sessions per week for 1 month. Includes mindfulness exercises and guided relaxation."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 240,
+//           "description": "Unlimited meditation sessions per week for 1 month. Includes personalized meditation and mindfulness plan, and one-on-one sessions."
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Daniel Green",
+//       "profileImage": "https://i.ibb.co.com/b78yMFK/pexels-gerardo-manzano-251119164-13980220.jpg",
+//       "age": 34,
+//       "bio": "Experienced fitness professional with a focus on endurance training and injury prevention.",
+//       "expertise": [
+//         "Endurance Training",
+//         "Injury Prevention",
+//         "Mobility Work"
+//       ],
+//       "yearsOfExperience": 9,
+//       "availableSlots": [
+//         {
+//           "day": "Sunday",
+//           "timeSlots": [
+//             {
+//               "slotId": "S013",
+//               "time": "9:00 AM - 10:00 AM",
+//               "isAvailable": true
+//             },
+//             {
+//               "slotId": "S014",
+//               "time": "10:00 AM - 11:00 AM",
+//               "isAvailable": true
+//             }
+//           ]
+//         }
+//       ],
+//       "socialLinks": {
+//         "facebook": "https://facebook.com/danielgreen",
+//         "instagram": "https://instagram.com/danielgreen",
+//         "twitter": "https://twitter.com/danielgreen"
+//       },
+//       "contactDetails": {
+//         "email": "danielgreen@example.com",
+//         "phone": "+1987654321"
+//       },
+//       "classesOffered": [
+//         {
+//           "className": "Endurance Training",
+//           "classImg": "https://i.ibb.co.com/2drFJxx/pexels-cliff-booth-4057070.jpg",
+//           "classDescription": "Train your body to improve stamina and endurance for long-term athletic performance.",
+//           "duration": "1 hour",
+//           "price": 28
+//         }
+//       ],
+//       "packages": [
+//         {
+//           "name": "Basic",
+//           "price": 112,
+//           "description": "1 endurance training class per week for 1 month. Focus on building stamina and improving overall endurance."
+//         },
+//         {
+//           "name": "Standard",
+//           "price": 260,
+//           "description": "2 endurance training classes per week for 1 month. Includes injury prevention techniques to ensure safe training."
+//         },
+//         {
+//           "name": "Premium",
+//           "price": 400,
+//           "description": "Unlimited endurance training classes per week for 1 month. Includes personalized mobility and injury prevention plans."
+//         }
+//       ]
+//     }
+//   ]

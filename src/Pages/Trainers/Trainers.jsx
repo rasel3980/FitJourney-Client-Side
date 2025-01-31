@@ -13,6 +13,7 @@ const Trainers = () => {
   const {
     data: trainers,
     isLoading,
+    refetch,
     error,
   } = useQuery({
     queryKey: ["trainers"],
@@ -22,6 +23,8 @@ const Trainers = () => {
     },
   });
 
+  console.log('trainers',trainers);
+
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -29,7 +32,6 @@ const Trainers = () => {
   if (error) {
     return <div>Error fetching trainer data: {error.message}</div>;
   }
-  console.log(trainers);
   return (
     <>
       <Helmet>
@@ -37,7 +39,6 @@ const Trainers = () => {
       </Helmet>
       <div className="w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {trainers.map((trainer) => {
-          // console.log('id',trainer._id);
           return (
             <div
               key={trainer._id}
@@ -52,6 +53,7 @@ const Trainers = () => {
                 <div className="space-y-2">
                   <h2 className="text-3xl font-semibold tracking-wide">
                     {trainer.name}
+                    
                   </h2>
                   <p className="text-gray-600">
                     {trainer.yearsOfExperience} years of experience
