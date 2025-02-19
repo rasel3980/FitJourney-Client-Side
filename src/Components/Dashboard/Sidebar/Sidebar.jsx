@@ -59,10 +59,9 @@ const Sidebar = () => {
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
               {/* Conditionally render menu items based on role */}
-              {/* {role === "Member" && <Member />}
-              {role === "Trainer" && <TrainerMenu />} */}
+              {role === "Member" && <Member />}
+              {role === "Trainer" && <TrainerMenu />}
               {role === "Admin" && <AdminMenu />}
-              {/* <AdminMenu></AdminMenu> */}
 
               {/* Common Menu Items */}
               <MenuItem icon={BsGraphUp} label="Statistics" address="/dashboard" />
