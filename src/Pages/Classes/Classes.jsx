@@ -51,13 +51,13 @@ const Classes = () => {
         <title>All Classes | FitJourney</title>
       </Helmet>
       <div className="w-11/12 mx-auto my-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {paginatedClasses.map((classItem) => (
             <div
               key={classItem._id}
-              className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800"
+              className="rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800"
             >
-              <div className="border-b p-4">
+              <div>
                 <img
                   src={classItem.classImg}
                   alt={classItem.className}
