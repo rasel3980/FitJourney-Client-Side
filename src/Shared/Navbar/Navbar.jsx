@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import logo from '../../assets/business_gym_logo2.jpg'
 import { NavLink } from "react-router-dom";
 import { authContext } from "../../Providers/AuthProvider/AuthProvider";
+import { CgProfile } from "react-icons/cg";
+
 
 const Navbar = () => {
   const {handleLogout,user} = useContext(authContext)
@@ -9,11 +11,12 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar with Avatar */}
-      <header className="relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-blue-900 text-white
+ shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden">
         <div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
           <nav
             aria-label="main navigation"
-            className="flex h-[5.5rem] items-center justify-between font-medium text-slate-700"
+            className="flex h-[5.5rem] text-white/95 font-bold items-center justify-between"
             role="navigation"
           >
             {/* Brand logo */}
@@ -96,7 +99,8 @@ const Navbar = () => {
                   <span>All Classes</span>
                 </NavLink>
               </li>
-              {user && <li role="none" className="flex items-center">
+              {user && <>
+              <li role="none" className="flex items-center">
                 <NavLink
                 to="dashboard"
                   role="menuitem"
@@ -106,18 +110,19 @@ const Navbar = () => {
                 >
                   <span>Dashboard</span>
                 </NavLink>
-              </li>}
-              <li role="none" className="flex items-center">
-                <NavLink
-                to="/forum"
-                  role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Forums</span>
-                </NavLink>
               </li>
+              <li role="none" className="flex items-center">
+              <NavLink
+              to="/forum"
+                role="menuitem"
+                aria-haspopup="false"
+                className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                href="javascript:void(0)"
+              >
+                <span>Forums</span>
+              </NavLink>
+            </li>
+              </> }
               {!user && 
               <><li role="none" className="flex items-center">
               <NavLink
@@ -125,7 +130,6 @@ const Navbar = () => {
                 role="menuitem"
                 aria-haspopup="false"
                 className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                href="javascript:void(0)"
               >
                 <span>Login</span>
               </NavLink>
@@ -145,23 +149,16 @@ const Navbar = () => {
 
             {/* Avatar */}
             <div className="ml-auto flex items-center px-6 lg:ml-0 lg:p-0">
-              <a
-                href="#"
-                className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
-              >
-                <img
+              {user?<img
                   src={user?.photoURL}
                   alt="user name"
                   title="user name"
                   width="40"
                   height="40"
                   className="max-w-full rounded-full"
-                />
-                <span className="absolute bottom-0 right-0 inline-flex items-center justify-center gap-1 rounded-full border-2 border-white bg-pink-500 p-1 text-sm text-white">
-                  <span className="sr-only"> 7 new emails </span>
-                </span>
-              </a>
-              {user && <button onClick={handleLogout}>Logout</button>}
+                /> : <CgProfile size={30}></CgProfile> }
+                
+              {user && <button className="ml-2" onClick={handleLogout}>Logout</button>}
             </div>
 
           </nav>
