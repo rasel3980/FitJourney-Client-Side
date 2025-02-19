@@ -3,7 +3,7 @@ import Loading from "../Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { Helmet } from "react-helmet";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Classes = () => {
   const axiosSecure = useAxiosSecure();
@@ -11,19 +11,26 @@ const Classes = () => {
   const location = useLocation();
 
   const currentPage = new URLSearchParams(location.search).get("page") || 1;
-  const [classesPerPage] = useState(6); 
+  const [classesPerPage] = useState(6);
+  const [sort, setSort] = useState(""); // State for sorting by price
 
+  // Fetch classes with sorting
   const {
     data: classes,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["classes"],
+    queryKey: ["classes", sort], // Add sort to queryKey to refetch when sort changes
     queryFn: async () => {
-      const res = await axiosSecure.get("/class");
+      const res = await axiosSecure.get(`/class?sort=${sort}`); // Pass sort in the query params
       return res.data;
     },
   });
+
+  // Effect to reset page number when sorting changes
+  useEffect(() => {
+    navigate(`?page=1`); // Reset to page 1 whenever sorting changes
+  }, [sort, navigate]);
 
   if (isLoading) {
     return <Loading />;
@@ -36,7 +43,7 @@ const Classes = () => {
   const paginatedClasses = classes.slice(
     (currentPage - 1) * classesPerPage,
     currentPage * classesPerPage
-  ); 
+  );
 
   const totalClasses = classes.length;
   const totalPages = Math.ceil(totalClasses / classesPerPage);
@@ -51,6 +58,26 @@ const Classes = () => {
         <title>All Classes | FitJourney</title>
       </Helmet>
       <div className="w-11/12 mx-auto my-16">
+        <div className="flex justify-between pb-5">
+          <div>
+            <h1 className="lg:text-3xl text-xl text-center font-bold">
+              Available Classes for You
+            </h1>
+          </div>
+          <select
+            className="border-2 lg:p-3 px-3 py-2 rounded-lg bg-white text-gray-700 shadow-md border-cyan-600"
+            onChange={(e) => setSort(e.target.value)} // Handle sort change
+            value={sort}
+            name="Price_Range"
+            id="Price_Range"
+          >
+            <option value="" className="text-gray-500">
+              Filter by Price
+            </option>
+            <option value="asc">Low to High</option>
+            <option value="dsc">High to Low</option>
+          </select>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {paginatedClasses.map((classItem) => (
             <div
