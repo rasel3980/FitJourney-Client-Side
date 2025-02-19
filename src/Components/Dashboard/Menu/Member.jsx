@@ -11,8 +11,8 @@ const Member = () => {
   };
   return (
     <>
-      <MenuItem icon={BsFingerprint} label='Activity Log' address='Activity-Log' />
-      <MenuItem icon={BsFingerprint} label='Booked Trainer' address='booked-trainer' />
+      {/* <MenuItem icon={BsFingerprint} label='Activity Log' address='Activity-Log' />
+      <MenuItem icon={BsFingerprint} label='Booked Trainer' address='booked-trainer' /> */}
     </>
   );
 };

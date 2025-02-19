@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { authContext } from "../../../Providers/AuthProvider/AuthProvider";
-import { useState } from 'react'
-import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
-import { AiOutlineBars } from 'react-icons/ai'
-import { BsGraphUp } from 'react-icons/bs'
 import { Link } from "react-router-dom";
+import { GrLogout } from "react-icons/gr";
+import { FcSettings } from "react-icons/fc";
+import { AiOutlineBars } from "react-icons/ai";
+import { BsGraphUp } from "react-icons/bs";
+import MenuItem from "../Menu/MenuItem";
+import navLogo from "../../../assets/business_gym_logo2.jpg";
 import Member from "../Menu/Member";
 import TrainerMenu from "../Menu/TrainerMenu";
 import AdminMenu from "../Menu/AdminMenu";
-import MenuItem from "../Menu/MenuItem";
-import navLogo from '../../../assets/business_gym_logo2.jpg'
+import useRole from "../../../Hooks/useRole";
 
 const Sidebar = () => {
+  const [role] = useRole();
   const { handleLogout } = useContext(authContext);
   const [isActive, setActive] = useState(false);
 
@@ -20,15 +21,16 @@ const Sidebar = () => {
   const handleToggle = () => {
     setActive(!isActive);
   };
+
   return (
     <>
       {/* Small Screen Navbar */}
       <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
         <div>
-          <div className="block cursor-pointer  p-4 font-bold">
+          <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
               <img
-                className='rounded-full'
+                className="rounded-full"
                 src={navLogo}
                 alt="logo"
                 width="100"
@@ -48,7 +50,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64  px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -56,33 +58,26 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
-              {/*  Menu Items */}
-              <Member></Member>
-              <TrainerMenu></TrainerMenu>
+              {/* Conditionally render menu items based on role */}
+              {/* {role === "Member" && <Member />}
+              {role === "Trainer" && <TrainerMenu />} */}
+              {role === "Admin" && <AdminMenu />}
+              {/* <AdminMenu></AdminMenu> */}
 
-              <MenuItem
-                icon={BsGraphUp}
-                label="Statistics"
-                address="/dashboard"
-              />
-              <AdminMenu></AdminMenu>
+              {/* Common Menu Items */}
+              <MenuItem icon={BsGraphUp} label="Statistics" address="/dashboard" />
             </nav>
           </div>
         </div>
 
         <div>
           <hr />
-          <MenuItem 
-            icon={FcSettings}
-            label="Profile"
-            address="profile">
-            </MenuItem>
+          <MenuItem icon={FcSettings} label="Profile" address="profile" />
           <button
             onClick={handleLogout}
-            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
+            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300 hover:text-gray-700 transition-colors duration-300 transform"
           >
             <GrLogout className="w-5 h-5" />
-
             <span className="mx-4 font-medium">Logout</span>
           </button>
         </div>

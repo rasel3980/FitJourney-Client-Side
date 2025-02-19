@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useRole from "../../../Hooks/useRole";
 
 const ActivityLog = () => {
+  const [role] = useRole();
+  console.log(role);
   const [applications, setApplications] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [feedback, setFeedback] = useState("");
